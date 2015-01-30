@@ -170,13 +170,8 @@ Plugin.registerSourceHandler("smart.json", {archMatching: "web"}, function (comp
 });
 
 Plugin.registerSourceHandler("bower.json", {archMatching: "web"}, function (compileStep) {
-  var bowerTree = loadJSONFile(compileStep);
+  Bower.
+    install(undefined, undefined, { cwd: '.' });
 
-  // bower.json files have additional metadata beyond what we care about (dependancies)
-  // but previous versions of this package assumed it was a flatter list
-  // so allow both
-  if (_.has(bowerTree, "dependencies"))
-    bowerTree = bowerTree.dependencies;
-
-  return bowerHandler(compileStep, bowerTree);
+  console.log('done');
 });
